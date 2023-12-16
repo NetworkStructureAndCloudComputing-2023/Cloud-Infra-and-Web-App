@@ -1,0 +1,24 @@
+{
+  "name": "csye6225",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@pulumi/aws": "^5.42.0",
+    "@pulumi/awsx": "^1.0.6",
+    "@pulumi/gcp": "^7.2.1",
+    "@pulumi/pulumi": "^3.88.0",
+    "awsx": "^1.4.2",
+    "fs": "^0.0.1-security",
+    "js-base64": "^3.7.5",
+    "js-yaml": "^4.1.0",
+    "pulumi": "^0.0.1",
+    "request": "^2.88.2"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,59 @@
+vpc_config:
+  Name: csye-6225
+  Cidr: 10.0.0.0/16
+
+igName: csye-6225-ig
+
+region: us-east-1
+
+
+publicRouteTableConfig:
+  Cidr: 0.0.0.0/0
+
+baseMask : /24
+
+EC2:
+
+  amiId : ami-018da283017e461cf
+  instanceType : t2.micro
+  rootVolume : 25
+  rootVolumeTyoe: gp2
+
+DNSZone: dev.gloriasingh.me
+
+securityGroup:
+  sshPort: 22
+  protocol: tcp
+  trafficPort80: 80
+  trafficPort443: 443
+  localPort: 8080
+  Cidr: 0.0.0.0/0
+
+digitalocean : ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDL1cdfP4wVXhiXpS5qpy3Sqjr2qfI8pIRW5hGMfxv07kzQIVBcKdDVZxr4OFFenfDUy3ImNW+nC8c92WM49VFz4BtaX6h1mZUOLnOne0qEAG3fpzxwo4e2njeLFz22p52osNYCwgX6qOoPVlNsn5uuPdgB9m58k6hc7kW6laJw+mazn8r+7mrldoIEoRlvr+lJ8CLkLgZ4rak/KcTscIEq0uc3gUSp9Z+pbYrkc65U4OK3DTSNbg5z9LsxhsiU5mW9oXmW4rt7TFTvd3kFogNsKr2KOnGcc4gpRQOY9f3Un3x/XMbIQi7wNb6gsSM6IUADv4qPjDP4UISn1kDXv62u5JdnkbpA7msg+X2EhHi/+FzkiQd6NpcqaeAJKh5N4Rt3rpEDgiEtALEgpXmQeE2Qwpdg7KaQvNyftedBUf+wFSQkzPEERb7zykhO+m/PPOoHCwYE0ubiNGumxlaIQDJuORYuD9sSG6OwEJWQgK1V7enssc3NX2XV8D817YK6Sxk= gloriasingh@glorias-MacBook-Air.local
+
+rdsintance:
+  dbName : health
+  username : admin
+  password : root1234
+
+scaleDown:
+  period : 60
+  evaluationPeriods: 2
+  threshold: 3
+  cooldown : 60
+
+scaleUp:
+  period : 60
+  evaluationPeriods: 2
+  threshold: 5
+  cooldown : 60
+
+sesResource: arn:aws:ses:us-east-1:639115432758:identity/demo.gloriasingh.me
+
+ssmPolicyAttachmentArn : arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+
+cloudWatchPolicyAttachmentArn : arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+
+lambdaLogsPolicyAttachmentArn : arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+CertificateArn : arn:aws:acm:us-east-1:639115432758:certificate/8d61b2f8-ea6a-488b-bda3-65bc35f58362
